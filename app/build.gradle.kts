@@ -45,7 +45,7 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.14"
     }
-    
+
     applicationVariants.all {
         outputs.all {
             val apkOutput = this as? com.android.build.gradle.api.ApkVariantOutput
