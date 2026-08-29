@@ -1,0 +1,23 @@
+{
+  "//": "Katalog Pioza Launcher (Wear OS). Wrzuć ten plik do swojego repo (np. Pioza Launcher albo osobnego repo z katalogiem apek) i podaj jego 'raw' URL w app/src/main/java/yt/dsh/piozalauncher/data/Config.kt jako CATALOG_URL.",
+  "//2": "Każdy wpis w 'apps' to jedna aplikacja widoczna w launcherze. Skopiuj blok, zmień pola, zapisz - launcher pobierze zmiany przy kolejnym uruchomieniu / odświeżeniu.",
+  "//3": "apkUrl MUSI być bezpośrednim linkiem do pliku .apk w sekcji Releases danego repo, np. https://github.com/<user>/<repo>/releases/download/<tag>/<plik>.apk",
+  "//4": "versionCode służy do wykrywania aktualizacji - podbijaj go przy każdym nowym wydaniu. Launcher porównuje go z wersją już zainstalowaną na zegarku.",
+  "schemaVersion": 1,
+  "apps": [
+    {
+      "id": "dsh-status-wear",
+      "name": "DSH Status",
+      "shortDescription": "Status usług EkipyDSH na Twoim zegarku",
+      "description": "Natywna aplikacja Wear OS pokazująca stan usług z status.dsh.yt (Uptime Kuma) - ogólny status, aktywne incydenty, monitory pogrupowane w kategorie oraz auto-odświeżanie co 60s.",
+      "author": "Shieldowskyy",
+      "packageName": "yt.dsh.statuswear",
+      "versionName": "1.0",
+      "versionCode": 1,
+      "apkUrl": "https://github.com/Shieldowskyy/DSHStatusWear/releases/download/v.1.0.0/yt.dsh.statuswear-wearos-v1.0.0-universal-release.apk",
+      "iconUrl": "",
+      "repoUrl": "https://github.com/Shieldowskyy/DSHStatusWear",
+      "sizeBytes": 5000000
+    }
+  ]
+}

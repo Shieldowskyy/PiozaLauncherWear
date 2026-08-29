@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature android:name="android.hardware.type.watch" />
+
+    <!-- Sieć: pobieranie katalogu apps.json i plików APK -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Wymagane, by móc poprosić użytkownika o instalację pobranego APK -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <!-- Android 11+ (API 30): bez tego PackageManager.getPackageInfo() rzuca
+         NameNotFoundException dla apek spoza jawnej listy <queries>, nawet jeśli
+         są zainstalowane. Launcher dynamicznie pobiera listę apek z sieci, więc
+         nie może z góry wyliczyć <queries> - QUERY_ALL_PACKAGES to jedyne
+         poprawne rozwiązanie dla tego scenariusza. -->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+
+    <application
+        android:name=".PiozaApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@android:style/Theme.DeviceDefault"
+        tools:targetApi="36">
+
+        <!-- Wymagane przez Wear OS, żeby launcher nie próbował się parować z apką na telefonie -->
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.PiozaLauncher.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Potrzebne, by przekazać PackageInstallerowi URI do pobranego pliku APK
+             (od Androida 7+ nie wolno udostępniać "goły" file:// poza aplikacją) -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+</manifest>

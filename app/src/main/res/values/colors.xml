@@ -1,0 +1,11 @@
+<resources>
+    <!-- Paleta "pizza": ciasto/ser + pomidor + oliwka -->
+    <color name="pioza_crust">#F2C14E</color>
+    <color name="pioza_tomato">#D7263D</color>
+    <color name="pioza_tomato_dark">#8C1C29</color>
+    <color name="pioza_olive">#3A5A40</color>
+    <color name="pioza_cheese">#FFE08A</color>
+    <color name="pioza_background">#121212</color>
+    <color name="pioza_surface">#1E1E1E</color>
+    <color name="pioza_on_surface">#F5F5F5</color>
+</resources>

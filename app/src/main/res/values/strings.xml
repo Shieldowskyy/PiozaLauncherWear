@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Pioza Launcher</string>
+
+    <string name="loading">Wczytywanie katalogu…</string>
+    <string name="loading_short">Wczytywanie…</string>
+    <string name="error_generic">Coś poszło nie tak</string>
+    <string name="error_network">Brak połączenia z internetem</string>
+    <string name="error_catalog">Nie udało się pobrać listy aplikacji</string>
+    <string name="retry">Spróbuj ponownie</string>
+
+    <string name="status_installed">Zainstalowana</string>
+    <string name="status_update_available">Dostępna aktualizacja</string>
+    <string name="status_not_installed">Do pobrania</string>
+
+    <string name="action_install">Zainstaluj</string>
+    <string name="action_update">Aktualizuj</string>
+    <string name="action_open">Otwórz</string>
+    <string name="action_cancel">Anuluj</string>
+    <string name="action_more_info">Więcej informacji</string>
+    <string name="action_uninstall">Odinstaluj</string>
+
+    <string name="downloading">Pobieranie %1$s…</string>
+    <string name="download_progress">Pobrano %1$d%%</string>
+    <string name="download_complete">Pobrano. Potwierdź instalację.</string>
+    <string name="download_failed">Pobieranie nie powiodło się</string>
+    <string name="install_prompt">Potwierdź instalację w kolejnym oknie</string>
+
+    <string name="version_label">Wersja %1$s</string>
+    <string name="author_label">Autor: %1$s</string>
+    <string name="empty_catalog">Katalog jest pusty</string>
+    <string name="permission_required">Wymagana zgoda w Ustawieniach</string>
+
+    <!-- Przycisk odświeżania katalogu -->
+    <string name="action_refresh">Odśwież katalog</string>
+    <string name="action_refresh_short">Odśwież</string>
+
+    <!-- Ekran szczegółów apki -->
+    <string name="detail_no_description">Brak opisu</string>
+    <string name="detail_installed_version">Zainstalowana: %1$s</string>
+    <string name="detail_catalog_version">Katalog: %1$s</string>
+    <string name="detail_size_mb">Rozmiar: %.1s MB</string>
+    <string name="detail_repo">Repozytorium</string>
+    <string name="detail_package">Pakiet: %1$s</string>
+
+    <!-- Launcher header -->
+    <string name="launcher_version">v%1$s</string>
+</resources>

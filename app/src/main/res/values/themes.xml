@@ -1,0 +1,11 @@
+<resources>
+
+    <style name="Theme.PiozaLauncher.Splash" parent="Theme.SplashScreen">
+        <!-- PLACEHOLDER: podmień na finalne logo pizzy (patrz res/drawable/ic_pioza_logo.xml) -->
+        <item name="windowSplashScreenBackground">@color/pioza_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_pioza_logo</item>
+        <item name="windowSplashScreenAnimationDuration">600</item>
+        <item name="postSplashScreenTheme">@android:style/Theme.DeviceDefault</item>
+    </style>
+
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  PLACEHOLDER spinnera ładowania: kręcący się kawałek pizzy (rotacja 360°, w pętli).
+  Podmień grafikę bazową (drawable/ic_pioza_logo.xml) na docelową ikonę pizzy -
+  animacja obrotu zostanie taka sama.
+  Użycie w Compose: patrz PizzaLoadingSpinner w ui/LoadingComponents.kt
+-->
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <target android:name="pizza_rotation_group">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="rotation"
+                android:valueFrom="0"
+                android:valueTo="360"
+                android:duration="1000"
+                android:repeatCount="infinite"
+                android:interpolator="@android:interpolator/linear" />
+        </aapt:attr>
+    </target>
+    <aapt:attr name="android:drawable">
+        <vector
+            android:width="48dp"
+            android:height="48dp"
+            android:viewportWidth="108"
+            android:viewportHeight="108">
+            <group
+                android:name="pizza_rotation_group"
+                android:pivotX="54"
+                android:pivotY="54">
+                <path
+                    android:fillColor="#F2C14E"
+                    android:pathData="M54,20 L88,88 L20,88 Z" />
+                <path
+                    android:fillColor="#FFE08A"
+                    android:pathData="M54,30 L79,82 L29,82 Z" />
+                <path
+                    android:fillColor="#D7263D"
+                    android:pathData="M50,45 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+                <path
+                    android:fillColor="#D7263D"
+                    android:pathData="M62,58 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+                <path
+                    android:fillColor="#D7263D"
+                    android:pathData="M45,68 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+            </group>
+        </vector>
+    </aapt:attr>
+</animated-vector>
