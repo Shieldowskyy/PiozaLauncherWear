@@ -6,10 +6,6 @@ Wear), inspirowany [Pioza Launcherem](https://github.com/Shieldowskyy/PiozaLaunc
 Wear OS z listy zdefiniowanej w pliku `apps.json`, m.in.
 [DSHStatusWear](https://github.com/Shieldowskyy/DSHStatusWear).
 
-
-<img width="454" height="454" alt="obraz" src="https://github.com/user-attachments/assets/7db4733f-617a-4b0a-96cd-754b8d539cb7" />
-
-
 ## Ważna uwaga na start
 
 Oryginalny **Pioza Launcher jest napisany w Unreal Engine 5** i działa na
@@ -92,9 +88,3 @@ Zobacz **`docs/JAK_DODAC_APKE.md`** - to jest ten "oddzielny plik", w którym
 Kod tego launchera jest na licencji MIT. DSHStatusWear i PiozaLauncher pozostają własnością ich
 autora i mają własne licencje - ten projekt jedynie pobiera i instaluje ich
 oficjalne pliki APK z GitHub Releases, nie zawiera ich kodu.
-
-## Screenshoty
-
-<img width="454" height="454" alt="obraz" src="https://github.com/user-attachments/assets/2c8bec12-9cfc-4cf2-9ea1-35ee5d4ebdc4" />
-<img width="454" height="454" alt="obraz" src="https://github.com/user-attachments/assets/d9b3aec4-026e-4a78-aa57-bbb119e6f698" />
-<img width="454" height="454" alt="obraz" src="https://github.com/user-attachments/assets/804cab7c-4ca6-4fba-9571-0a08f0ad39af" />
