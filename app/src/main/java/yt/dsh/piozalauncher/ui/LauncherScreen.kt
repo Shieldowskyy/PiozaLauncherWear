@@ -6,10 +6,17 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.focus.focusable
+import androidx.compose.ui.input.rotary.onRotaryScrollEvent
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.foundation.lazy.AutoCenteringParams
@@ -29,6 +36,7 @@ import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.TimeText
 import androidx.wear.compose.material.Vignette
 import androidx.wear.compose.material.VignettePosition
+import kotlinx.coroutines.launch
 import yt.dsh.piozalauncher.BuildConfig
 import yt.dsh.piozalauncher.R
 import yt.dsh.piozalauncher.data.CatalogUiState
@@ -41,6 +49,14 @@ fun LauncherScreen(viewModel: LauncherViewModel) {
     val downloadStates by viewModel.downloadStates.collectAsState()
     val selectedApp by viewModel.selectedApp.collectAsState()
     val listState: ScalingLazyListState = rememberScalingLazyListState()
+    val focusRequester = remember { FocusRequester() }
+    val coroutineScope = rememberCoroutineScope()
+
+    // Wymagane, by ScalingLazyColumn zaczęła dostawać zdarzenia z pierścienia
+    // obrotowego (rotary input) - bez focusu system w ogóle ich nie dostarczy.
+    LaunchedEffect(Unit) {
+        focusRequester.requestFocus()
+    }
 
 // --- Nawigacja: jeśli wybrano apkę, pokaż ekran szczegółów ---
     val selected = selectedApp
@@ -86,7 +102,16 @@ fun LauncherScreen(viewModel: LauncherViewModel) {
                     }
                 } else {
                     ScalingLazyColumn(
-                        modifier = Modifier.fillMaxSize(),
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .onRotaryScrollEvent {
+                                coroutineScope.launch {
+                                    listState.scrollBy(it.verticalScrollPixels)
+                                }
+                                true
+                            }
+                            .focusRequester(focusRequester)
+                            .focusable(),
                         state = listState,
                         autoCentering = AutoCenteringParams(itemIndex = 0)
                     ) {
